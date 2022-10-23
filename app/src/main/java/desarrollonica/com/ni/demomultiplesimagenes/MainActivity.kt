@@ -13,13 +13,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var _Ubicacion: ArrayList<Uri>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-        Btn_Prueba.setOnClickListener {
+        Btn_Buscar.setOnClickListener {
             FishBun.with(this)
                 .setImageAdapter(GlideAdapter())
                 .setAlbumSpanCount(2, 3)
@@ -36,13 +37,13 @@ class MainActivity : AppCompatActivity() {
                 .startAlbumWithOnActivityResult(27)
         }
 
+
+        Btn_Subir.setOnClickListener { Log.i("RESULTADO", "RESPUESTA DESPUES DE BUSCAR") }
     }
 
 
     override fun onActivityResult(_CodigoSolic: Int, _CodigoResult: Int, _DatoImagen: Intent?) {
         super.onActivityResult(_CodigoSolic, _CodigoResult, _DatoImagen)
-
-        lateinit var _Ubicacion: ArrayList<Uri>
 
         when (_CodigoSolic) {
             FishBun.FISHBUN_REQUEST_CODE -> if (_CodigoResult === RESULT_OK) {
@@ -50,7 +51,9 @@ class MainActivity : AppCompatActivity() {
                     _DatoImagen?.getParcelableArrayListExtra(FishBun.INTENT_PATH) ?: arrayListOf()
                 Log.i("RESULTADO", "RESPUESTA_ -> $_Ubicacion")
                 Log.i("RESULTADO", "RESPUESTA_INDIVIDUAL_ -> ${_Ubicacion.get(0)}")
-                Img_Cargador.setImageURI(_Ubicacion.get(0))
+                Img_Resultado.setImageURI(_Ubicacion.get(0))
+
+                Btn_Subir.isEnabled = true
             }
         }
     }

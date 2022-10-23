@@ -9,16 +9,25 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/Img_Cargador"
+        android:id="@+id/Img_Resultado"
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:srcCompat="@drawable/icon_forestal" />
 
     <Button
-        android:id="@+id/Btn_Prueba"
-        android:layout_width="wrap_content"
+        android:id="@+id/Btn_Buscar"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Haciendo Prueba" />
+        android:text="Buscar Imágenes" />
+
+    <Button
+        android:id="@+id/Btn_Subir"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/RojoPalido"
+        android:enabled="false"
+        android:text="Subir a Plataforma" />
 
 </LinearLayout>
