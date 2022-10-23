@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5791bf</color>
+    <color name="colorPrimaryDark">#5791bf</color>
+    <color name="colorAccent">#5791bf</color>
+    <color name="Amarillo">#f1d200</color>
+    <color name="Anaranjado">#F39C12</color>
+    <color name="Lila">#5472d4</color>
+
+    <color name="TarjetaVerde">#06bd00</color>
+    <color name="TarjetaAzul">#0861ae</color>
+    <color name="TarjetaFuchsia">#FF00FF</color>
+    <color name="TarjetaNaranja">#FEB330</color>
+
+
+    <color name="Transparente">#00000000</color>
+
+    <color name="GradienteInicio">#19AA8B</color>
+    <color name="GradienteFinal">#23A7D8</color>
+
+    <color name="Iconos">#48c157</color>
+
+    <color name="MainActivity1">#6dba4b</color>
+
+    <color name="Blanco0">#ffffff</color>
+    <color name="Blanco1">#FDFEFE</color>
+    <color name="Blanco2">#FBFCFC</color>
+    <color name="Blanco3">#F7F9F9</color>
+    <color name="Blanco4">#F4F6F7</color>
+    <color name="Blanco5">#F0F3F4</color>
+
+    <color name="Gris">#999999</color>
+    <color name="GrisClaro">#E0DDDD</color>
+    <color name="Negro">#000000</color>
+    <color name="Rojo">#ff3535</color>
+    <color name="RojoPalido">#FF8A80</color>
+
+    <color name="Trans">#80000000</color>
+
+    <color name="purple_200">#0E67A3</color>
+    <color name="purple_500">#0E67A3</color>
+    <color name="purple_700">#0E67A3</color>
+    <color name="teal_200">#f17015</color>
+    <color name="teal_700">#0E67A3</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
