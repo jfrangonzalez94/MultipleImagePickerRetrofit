@@ -8,6 +8,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <SearchView
+        android:id="@+id/Sv_Busqueda"
+        android:background="@drawable/shape_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
     <ImageView
         android:id="@+id/Img_Resultado"
         android:layout_width="300dp"

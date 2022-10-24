@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.sangcomz.fishbun.FishBun
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter
@@ -18,6 +19,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Sv_Busqueda.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(_Texto: String?): Boolean {
+                Log.i("RESULTADO", "TEXTCAMBIADO_1 -> ${_Texto.toString()}")
+                return false
+            }
+
+            override fun onQueryTextChange(_Texto: String?): Boolean {
+                Log.i("RESULTADO", "TEXTCAMBIADO_2 -> ${_Texto.toString()}")
+                return false
+            }
+        })
 
 
         Btn_Buscar.setOnClickListener {
