@@ -1,9 +1,12 @@
 package desarrollonica.com.ni.demomultiplesimagenes
 
 import android.R.attr.path
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
@@ -40,9 +43,11 @@ class MainActivity : AppCompatActivity() {
                 .setPickerCount(5) // Limite que puede escoger el usuario
                 .setPickerSpanCount(4) // Cuantas Columnas
                 .setIsUseDetailView(false) // No se puede ampliar imagen
-                .setActionBarColor(getColor(R.color.colorPrimary),
+                .setActionBarColor(
                     getColor(R.color.colorPrimary),
-                    true)
+                    getColor(R.color.colorPrimary),
+                    true
+                )
                 .setActionBarTitleColor(getColor(R.color.Blanco0)) // Color Titulo
                 .setAllViewTitle("Todas tus Imágenes")
                 .textOnImagesSelectionLimitReached("¡No se puede seleccionar más Imágenes!")
@@ -52,6 +57,13 @@ class MainActivity : AppCompatActivity() {
 
 
         Btn_Subir.setOnClickListener { Log.i("RESULTADO", "RESPUESTA DESPUES DE BUSCAR") }
+    }
+
+    //CONVERTIR DE URI A BITMAP
+    fun ObtenerBitmapImagen(_Context: Activity, _Image: Uri): Bitmap {
+        val _Bitmap: Bitmap =
+            MediaStore.Images.Media.getBitmap(_Context.getContentResolver(), _Image)
+        return _Bitmap
     }
 
 
@@ -64,8 +76,12 @@ class MainActivity : AppCompatActivity() {
                     _DatoImagen?.getParcelableArrayListExtra(FishBun.INTENT_PATH) ?: arrayListOf()
                 Log.i("RESULTADO", "RESPUESTA_ -> $_Ubicacion")
                 Log.i("RESULTADO", "RESPUESTA_INDIVIDUAL_ -> ${_Ubicacion.get(0)}")
-                Img_Resultado.setImageURI(_Ubicacion.get(0))
-
+                Log.i(
+                    "RESULTADO",
+                    "RESPUESTA_INDIVIDUAL_BINARY -> ${ObtenerBitmapImagen(this, _Ubicacion.get(0))}"
+                )
+                //Img_Resultado.setImageURI(_Ubicacion.get(0))
+                Img_Resultado.setImageBitmap(ObtenerBitmapImagen(this, _Ubicacion.get(0)))
                 Btn_Subir.isEnabled = true
             }
         }
